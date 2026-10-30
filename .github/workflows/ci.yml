@@ -1,0 +1,65 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  smoke:
+    name: TeX pipeline smoke test
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      # macOS 上是 MacTeX，CI 里用 Ubuntu 的 TeX Live 验证同一条编译管线：
+      # latex -> dvisvgm / dvipng / dvipdfmx+pdfcrop，以及 xelatex+ctex 的中文路径。
+      - name: Install TeX Live
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            texlive-latex-base \
+            texlive-latex-recommended \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            texlive-xetex \
+            texlive-lang-chinese \
+            texlive-extra-utils \
+            ghostscript \
+            latexmk
+
+      - name: Install SVG/PNG converters only if missing
+        run: |
+          missing=""
+          for b in dvisvgm dvipng; do
+            command -v "$b" >/dev/null 2>&1 || missing="$missing $b"
+          done
+          if [ -n "$missing" ]; then
+            echo "not provided by texlive:$missing"
+            sudo apt-get install -y --no-install-recommends $missing
+          else
+            echo "dvisvgm/dvipng came with texlive"
+          fi
+
+      - name: Show toolchain
+        run: |
+          node --version
+          for b in latex pdflatex xelatex dvisvgm dvipng dvipdfmx pdfcrop pdftex; do
+            printf '%-10s %s\n' "$b" "$(command -v "$b" || echo MISSING)"
+          done
+
+      - name: Smoke test
+        run: node test/smoke.mjs

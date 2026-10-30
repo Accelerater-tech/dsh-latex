@@ -1,6 +1,6 @@
 # dsh-latex
 
-[![release](https://img.shields.io/github/v/release/Accelerater-tech/dsh-latex?color=indigo)](https://github.com/Accelerater-tech/dsh-latex/releases) [![license](https://img.shields.io/github/license/Accelerater-tech/dsh-latex)](LICENSE)
+[![release](https://img.shields.io/github/v/release/Accelerater-tech/dsh-latex?color=indigo)](https://github.com/Accelerater-tech/dsh-latex/releases) [![license](https://img.shields.io/github/license/Accelerater-tech/dsh-latex)](LICENSE) [![ci](https://github.com/Accelerater-tech/dsh-latex/actions/workflows/ci.yml/badge.svg)](https://github.com/Accelerater-tech/dsh-latex/actions/workflows/ci.yml)
 
 让 harness 直接调用本机 LaTeX，并让 DeepSeek 的回复以公式块展示数学。
 
@@ -171,6 +171,8 @@ KaTeX 渲染失败时会退回红色错误文本，不会把整条消息搞坏�
 node test/smoke.mjs        # 不经过 harness，直接验证 TeX 管线
 pnpm pack                  # 生成可分发 tarball
 ```
+
+> CI：每次 push 到 `main` 都会在 GitHub Actions（Ubuntu + TeX Live）上跑同一条冒烟测试，见 [`.github/workflows/ci.yml`](.github/workflows/ci.yml)。
 
 目录结构：
 
