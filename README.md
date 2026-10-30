@@ -1,5 +1,7 @@
 # dsh-latex
 
+[![release](https://img.shields.io/github/v/release/Accelerater-tech/dsh-latex?color=indigo)](https://github.com/Accelerater-tech/dsh-latex/releases) [![license](https://img.shields.io/github/license/Accelerater-tech/dsh-latex)](LICENSE)
+
 让 harness 直接调用本机 LaTeX，并让 DeepSeek 的回复以公式块展示数学。
 
 装好之后有两件事发生：
@@ -40,7 +42,7 @@ plugin_manager action=install_bundle target=<这个目录的绝对路径>
 从 GitHub 装：
 
 ```bash
-git clone https://github.com/<用户名>/dsh-latex.git
+git clone https://github.com/Accelerater-tech/dsh-latex.git
 ```
 
 然后在 DSH 里对着克隆出来的目录跑同一条 `install_bundle`。它会把包装进 profile

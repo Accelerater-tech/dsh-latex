@@ -40,5 +40,13 @@
   },
   "scripts": {
     "test": "node test/smoke.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Accelerater-tech/dsh-latex.git"
+  },
+  "homepage": "https://github.com/Accelerater-tech/dsh-latex#readme",
+  "bugs": {
+    "url": "https://github.com/Accelerater-tech/dsh-latex/issues"
   }
 }
