@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="LaTeX">
+  <rect width="64" height="64" rx="14" fill="#4338ca"/>
+  <path d="M10 36h6.2l5.4 13.4L36.4 14h18.2" fill="none" stroke="#ffffff" stroke-width="4.4"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M40 40.5h14.6" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.9"/>
+</svg>

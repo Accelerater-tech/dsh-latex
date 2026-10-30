@@ -1,0 +1,44 @@
+{
+  "name": "@local/dsh-latex",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Call LaTeX from the harness and render math as compiled formula blocks",
+  "license": "MIT",
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "cordis",
+    "latex",
+    "tex",
+    "katex",
+    "math",
+    "plugin"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./lib/tex.js": "./lib/tex.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "lib/tex.js",
+    "cordis.patch.yml",
+    "locale/en.json",
+    "locale/zh.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "icon": "./icon.svg",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "scripts": {
+    "test": "node test/smoke.mjs"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "LaTeX",
+    "description": "Compile LaTeX locally and render math as compiled formula blocks in chat."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "LaTeX 公式",
+    "description": "让 harness 直接调用本机 LaTeX：公式编译为 SVG/PNG/PDF，并在聊天里以公式块展示。"
+  }
+}

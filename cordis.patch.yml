@@ -1,0 +1,3 @@
+- insert:
+    - id: dsh-latex
+      name: '@local/dsh-latex'
